@@ -1,0 +1,9 @@
+{
+  "name": "md-dm-api",
+  "dependencies": {
+    "async": "^2.6.2",
+    "express": "^4.17.0",
+    "telnet-client": "^1.0.0",
+    "winston": "^3.2.1"
+  }
+}

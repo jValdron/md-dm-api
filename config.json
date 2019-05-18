@@ -1,0 +1,8 @@
+{
+	"device": {
+		"address": "vhtsw0"
+	},
+	"api": {
+		"port": 3000
+	}
+}
