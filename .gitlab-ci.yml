@@ -1,8 +1,5 @@
  image: docker:stable
 
- before_script:
-   - docker info
-
  build:
    stage: build
    script:
