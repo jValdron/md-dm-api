@@ -5,7 +5,7 @@
   "author": "Jason Valdron <jason@valdron.ca>",
   "main": "server.js",
   "repository": "http://git.valdron.ca/homelab/md-dm-api/",
-  "license": "Private",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "start": "node server.js"
   },

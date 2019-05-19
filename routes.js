@@ -85,7 +85,7 @@ module.exports = {
 		//   "usb": 1
 		// }
 		app.post('/output/:slot', (req, res) => {
-			if (!(typeof req.body.video === 'undefined' && typeof req.body.audio === 'undefined' && typeof req.body.usb === 'undefined'))
+			if (typeof req.body.video === 'undefined' && typeof req.body.audio === 'undefined' && typeof req.body.usb === 'undefined')
 			{
 				return res.status(400).json({ message: 'At least the video, audio or usb input must be given.' })
 			}
