@@ -1,5 +1,12 @@
 {
   "name": "md-dm-api",
+  "version": "1.0.0",
+  "description": "Provides a REST API to control the AVU routing of an MD-DM device. Tested with MD-DM8x8 v4.102.159200059.",
+  "author": "Jason Valdron <jason@valdron.ca>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "async": "^2.6.2",
     "express": "^4.17.0",

@@ -4,21 +4,23 @@ const express = require('express')
 const MdDmConnection = require('./lib/MdDmConnection')
 
 const logger = require('./logging')
-
-const args = process.argv.splice(2)
-var configPath = args.length > 0 ? args[0] : './config.json'
-
-logger.info(`Using config: ${configPath}`)
-
-const config = require(configPath)
 const routes = require('./routes')
 
+const PORT = process.env.PORT || 8080
+const MDDM_ADDRESS = process.env.MDDM_ADDRESS
+
+if (!MDDM_ADDRESS)
+{
+	logger.error('MDDM_ADDRESS must be defined. Use the IP or hostname of the MD-DM device.')
+	return -1
+}
+
 var app = express(),
-	connection = new MdDmConnection(config.device.address, logger)
+	connection = new MdDmConnection(MDDM_ADDRESS, logger)
 
 app.use(express.json())
 
 routes.setup(app, logger, connection)
 
 connection.start()
-app.listen(config.api.port, () => logger.info(`md-dm-api started on port ${config.api.port}`))
+app.listen(PORT, () => logger.info(`md-dm-api started on port ${PORT}`))
