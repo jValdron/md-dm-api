@@ -85,7 +85,7 @@ module.exports = {
 		//   "usb": 1
 		// }
 		app.post('/output/:slot', (req, res) => {
-			if (!(req.body.video && req.body.audio && req.body.usb))
+			if (!(typeof req.body.video === 'undefined' && typeof req.body.audio === 'undefined' && typeof req.body.usb === 'undefined'))
 			{
 				return res.status(400).json({ message: 'At least the video, audio or usb input must be given.' })
 			}
@@ -94,7 +94,7 @@ module.exports = {
 
 			async.series([
 				function (cb) {
-					if (req.body.audio)
+					if (typeof req.body.audio !== 'undefined')
 					{
 						logger.debug(`Setting new audio route for slot ${req.params.slot} to ${req.body.audio}`)
 
@@ -109,7 +109,7 @@ module.exports = {
 				},
 
 				function (cb) {
-					if (req.body.video)
+					if (typeof req.body.video !== 'undefined')
 					{
 						logger.debug(`Setting new video route for slot ${req.params.slot} to ${req.body.video}`)
 
@@ -124,7 +124,7 @@ module.exports = {
 				},
 
 				function (cb) {
-					if (req.body.usb)
+					if (typeof req.body.usb !== 'undefined')
 					{
 						logger.debug(`Setting new USB route for slot ${req.params.slot} to ${req.body.usb}`)
 

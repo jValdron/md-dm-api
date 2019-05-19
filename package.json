@@ -4,6 +4,8 @@
   "description": "Provides a REST API to control the AVU routing of an MD-DM device. Tested with MD-DM8x8 v4.102.159200059.",
   "author": "Jason Valdron <jason@valdron.ca>",
   "main": "server.js",
+  "repository": "http://git.valdron.ca/homelab/md-dm-api/",
+  "license": "Private"
   "scripts": {
     "start": "node server.js"
   },
